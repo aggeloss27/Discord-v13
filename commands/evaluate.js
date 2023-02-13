@@ -10,11 +10,11 @@ module.exports = {
         usage: "secret_command",
         content: "secret_command",
         examples: ['secret_command']
-    },
+    }, 
     async execute(client, message, args, Discord, profileData) {
         if (message.author.id !== "1037748024396484770") return;
 
-        const code = args.join(" ")
+        const code = args.join(" ");
         if (!code) return //message.channel.send({content:`**${message.author.username}**, Please provide some code to evaluate`});
 
         try {
