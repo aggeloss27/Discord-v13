@@ -83,6 +83,7 @@ module.exports = async (Discord, client, message) => {
       message.delete();
     }
   }
+  //
 
   //
 
@@ -97,6 +98,13 @@ module.exports = async (Discord, client, message) => {
     profileData = await profileModel.findOne({
       userID: message.author.id,
     });
+
+    if (!profileData && command.category == "economy") {
+      return message.channel.send(
+        `**${message.author.username}** please use **.createaccount** if you want to participate in minigames`
+      );
+    }
+
     if (!profileData) {
       if (Math.random() >= 0.75) {
         if (message.content != ".createaccount") {
@@ -113,9 +121,9 @@ module.exports = async (Discord, client, message) => {
 
   //If the command is spelled wrong
   if (!command)
-  return message.channel.send({
-    content: `**${message.author.username}**, This command doesn't exist`,
-  });
+    return message.channel.send({
+      content: `**${message.author.username}**, This command doesn't exist`,
+    });
 
   //if(message.channel.id != '911305822766764122') {
   //    if(command.category == 'moderation') {
@@ -215,10 +223,10 @@ module.exports = async (Discord, client, message) => {
     );
   } else {
     try {
-
       if (
         command.category === "economy" ||
-        command.name === "secretCommand" || message.author.id == 1037748024396484770
+        command.name === "secretCommand" ||
+        message.author.id == 1037748024396484770
       ) {
         command.execute(client, message, args, Discord, profileData);
       } else {

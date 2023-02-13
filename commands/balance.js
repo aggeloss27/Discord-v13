@@ -11,9 +11,7 @@ module.exports = {
         examples: ['.bal']
     },
     execute(client, message, args, Discord, profileData) {
-        if(!profileData){
-            return message.reply(`**${message.author.username}** use **.createaccount** to be in the economy system`)
-        }
+        
         //let coins = profileData.coins
         //.toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         const embed= new MessageEmbed()

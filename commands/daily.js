@@ -11,9 +11,7 @@ module.exports = {
         examples: ['.daily']
     },
     async execute(client, message, args, Discord, profileData) {
-        if(!profileData){
-            return message.reply(`**${message.author.username}** use **.createaccount** to be in the economy system`)
-        }
+        
         const profileModel = require("../models/profileSchema");
         const usercoins = profileData.coins
         const number = Math.round((20000 + (usercoins / 10)))

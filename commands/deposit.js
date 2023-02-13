@@ -12,9 +12,7 @@ module.exports = {
         examples: ['.deposit 1256']
     },
     async execute(client, message, args, Discord, profileData) {
-        if(!profileData){
-            return message.reply(`**${message.author.username}** use **.createaccount** to be in the economy system`)
-        }
+        
         const amm = args[0];
         if (amm % 1 != 0 || amm <= 0) return //message.reply({content:"**Please enter a number**"})
 

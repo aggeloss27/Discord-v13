@@ -12,9 +12,7 @@ module.exports = {
         examples: '.beg'
     },
     async execute(client, message, args, Discord, profileData) {
-        if(!profileData){
-            return message.reply(`**${message.author.username}** use **.createaccount** to be in the economy system`)
-        }
+        
         let CHANCE = Math.random()
         const FamousList = [
             "Miley Cyrus",

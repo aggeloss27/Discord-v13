@@ -11,9 +11,7 @@ module.exports = {
         examples: ['.give @aggeloss 500']
     },
     async execute(client, message, args, Discord, profileData){
-        if(!profileData){
-            return message.reply(`**${message.author.username}** use **.createaccount** to be in the economy system`)
-        }
+        
         const target = message.mentiont.members.first();
         if(!target || !target.profileData) return;
 
