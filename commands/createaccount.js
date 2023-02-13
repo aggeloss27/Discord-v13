@@ -4,7 +4,7 @@ module.exports = {
     permissions: [],
     aliases: [],
     cooldown: 0,
-    category: 'economy',
+    category: 'utility',
     description: {
         usage: ".createaccount",
         content: "Create a bank account so you can start interacting with our economy system",

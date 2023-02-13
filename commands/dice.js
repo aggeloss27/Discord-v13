@@ -15,6 +15,7 @@ module.exports = {
     async execute(client, message, args, Discord, profileData) {
         
         const amm = args[0]
+        if (amm < 250 || amm > 250000) return message.reply("The minimum bet is **250** and the maximum bet is **250000**")
         if (amm % 1 != 0 || amm <= 0) return //message.reply({content:`**${message.author.username}**, please enter a **valid** number`})
         if (amm > profileData.coins) return message.reply({content:`You don't have that ammount of coins.`});
         Dealerr = Math.floor(Math.random() * 12) + 2
