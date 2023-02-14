@@ -79,7 +79,7 @@ module.exports = async (Discord, client, message) => {
   for (const word of swearwords) {
     if (message.content.toLowerCase().includes(word)) {
       message.channel.send({
-        content: [`<@${message.author.id}> **Do not cuss**`],
+        content: `<@${message.author.id}> **Do not cuss**`
       });
       message.delete();
     }
