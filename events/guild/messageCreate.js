@@ -54,14 +54,13 @@ module.exports = async (Discord, client, message) => {
 
   //Features
 
-  let mutedRole = message.guild.roles.cache.find((r) => r.name === "Muted");
-  //let collectorChannel = message.guild.channels.cache.find(c => c.name === '📜┃moderation-logs')
+  //let collectorChannel = message.guild.channels.cache.find(c => c.name === '📜    ┃moderation-logs')
 
   if (message.content.length > 500) {
     message.channel.send({
-      content: [
-        `<@${message.author.id}> **You are not allowed to send messages above 500 characters**`,
-      ],
+      content:
+        `<@${message.author.id}> **You are not allowed to send messages above 500   
+         characters**`,
     });
     message.delete();
   }
@@ -71,7 +70,7 @@ module.exports = async (Discord, client, message) => {
     if (message.content.includes(link)) {
       message.delete();
       a = (await message.guild.members.fetch()).get(message.author.id);
-      a.roles.add(mutedRole);
+      a.roles.add("1075048317555318876");
     }
   }
 
@@ -124,7 +123,7 @@ module.exports = async (Discord, client, message) => {
   if (!command)
     return message.channel.send({
       content: `**${message.author.username}**, This command doesn't exist`,
-    }); 
+    });
 
   if (command.permissions.length) {
     let invalidPermissions = [];
