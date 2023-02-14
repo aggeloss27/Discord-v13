@@ -8,6 +8,7 @@ const randomstring = require("randomstring");
 module.exports = async (Discord, client, message) => {
   /**
    * @param {client} client
+   * @param {message} message
    */
   const prefix = process.env.PREFIX;
   const validPermissions = [
@@ -123,17 +124,7 @@ module.exports = async (Discord, client, message) => {
   if (!command)
     return message.channel.send({
       content: `**${message.author.username}**, This command doesn't exist`,
-    });
-
-  //if(message.channel.id != '911305822766764122') {
-  //    if(command.category == 'moderation') {
-  //        return command.execute(client, message, args, Discord, profileData);
-  //    } else if(command.name == 'slowmode') {
-  //        return command.execute(client, message, args, Discord, profileData);
-  //    } else {
-  //        return message.channel.send({content:`🚫 **${message.author.username}**, commands are disabled in this channel.`})
-  //    }
-  //}
+    }); 
 
   if (command.permissions.length) {
     let invalidPermissions = [];

@@ -14,7 +14,7 @@ module.exports = {
         
         const profileModel = require("../models/profileSchema");
         const usercoins = profileData.coins
-        const number = Math.round((20000 + (usercoins / 10)))
+        const number = Math.round((20000 + (usercoins / 25)))
         const respone = await profileModel.findOneAndUpdate({
             userID: message.author.id
         }, {

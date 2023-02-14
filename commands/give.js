@@ -13,7 +13,8 @@ module.exports = {
     async execute(client, message, args, Discord, profileData){
         
         const target = message.mentiont.members.first();
-        if(!target || !target.profileData) return;
+        let targetdata = await profileModel.findOne({ userID: target.id})
+        if(!target || !targetdata) return;
 
         const coinsAmm = args[1]
         if(!coinsAmm) return;
