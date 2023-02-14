@@ -1,5 +1,15 @@
+const express = require('express')
+const app = express();
+const port = 3000
+
+app.get('/', (req, res) => res.send('Welcome Home!'))
+
+app.listen(port, () => {
+  console.log("[HOSTING] Your bot is getting pinged")
+})
+
 require('dotenv').config()
-const {Discord, Intents, Collection, Client} = require('discord.js');
+const { Discord, Intents, Collection, Client } = require('discord.js');
 const client = new Client({
   intents: 32767,
   partials: ['CHANNEL', 'GUILD_MEMBER', 'GUILD_SCHEDULED_EVENT', 'MESSAGE', 'REACTION', 'USER'],
@@ -31,4 +41,4 @@ mongoose.connect(process.env.MONGO, {
   console.log(err)
 })
 
-client.login(process.env.DISCORD_TOKEN)
+client.login(process.env['DISCORD_TOKEN'])
