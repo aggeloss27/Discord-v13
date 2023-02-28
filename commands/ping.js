@@ -1,4 +1,4 @@
-const {MessageEmbed} = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 module.exports = {
   name: 'ping',
   permissions: ["ADMINISTRATOR"],
@@ -14,9 +14,9 @@ module.exports = {
     try {
       let em = new MessageEmbed()
         .setTitle("Pong!")
-        .setColor("#21B46F")
+        .setColor("#5DC21E")
         .setDescription(`The ping is: **${client.ws.ping} ms**`)
-      message.channel.send({embeds: [em], allowedMentions: {repliedUser: false}});
+      message.channel.send({ embeds: [em], allowedMentions: { repliedUser: false } });
     } catch (e) {
       console.log(e)
     }

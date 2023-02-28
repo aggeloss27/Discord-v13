@@ -2,7 +2,7 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
   name: "deleteaccount",
   permissions: [],
-  aliases: [],
+  aliases: ['resetaccount', 'reset', 'prestige'],
   cooldown: 0,
   category: "utility",
   description: {

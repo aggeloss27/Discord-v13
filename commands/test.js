@@ -1,3 +1,5 @@
+let {findExp, levels, getPlayerLevel, getXpToLevelUp} = require('../xpLevels')
+const profileModel = require('../models/profileSchema')
 module.exports = {
   name: 'test',
   permissions: [],
@@ -10,6 +12,6 @@ module.exports = {
     examples: ['.test']
   },
   async execute(client, message, args, Discord, profileData) {
-    message.channel.send(`**${message.author.username}** Everything is ok`)
+    message.reply(`**${message.author.username}** don't worry everything is fine !`)
   }
 }

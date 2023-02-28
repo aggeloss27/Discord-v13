@@ -1,4 +1,4 @@
-const {MessageEmbed} = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 module.exports = {
   name: 'clear',
   permissions: ["ADMINISTRATOR"],
@@ -21,11 +21,11 @@ module.exports = {
     }).then(messages => {
       message.delete()
       message.channel.bulkDelete(messages)
-      let em= new MessageEmbed()
+      let em = new MessageEmbed()
         .setTitle("Clear command")
-        .setColor("#21B46F")
+        .setColor("#5DC21E")
         .setDescription(`Cleared **${args[0]}** messages`)
-        message.channel.send({embeds: [em]})
+      message.channel.send({ embeds: [em] })
         .then(msg => {
           setTimeout(() => msg.delete(), 5000)
         })

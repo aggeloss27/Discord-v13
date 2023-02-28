@@ -13,7 +13,7 @@ module.exports = {
   },
   async execute(client, message, args, Discord, profileData) {
     const HELP_EMBED = new MessageEmbed()
-      .setColor("#3262da")
+      .setColor("#5DC21E")
       .setTitle("Help")
       .setDescription(
         "For additional info on each command, type `.help <command>`"
@@ -41,7 +41,7 @@ module.exports = {
         }
       );
 
-    if (!args[0]) return await message.reply({embeds:[HELP_EMBED]});
+    if (!args[0]) return await message.reply({ embeds: [HELP_EMBED] });
     let totalCategorys = client.commands.map((cmd) => cmd.category);
     let categories = totalCategorys.filter((dub, index) => {
       return totalCategorys.indexOf(dub) === index;
@@ -49,7 +49,7 @@ module.exports = {
 
     if (categories.includes(args[0].toLowerCase())) {
       const CategoryEmbed = new MessageEmbed()
-        .setColor("#3262da")
+        .setColor("#5DC21E")
         .setTitle(
           `${args[0].charAt(0).toUpperCase() + args[0].slice(1)} Commands`
         )
@@ -78,7 +78,7 @@ module.exports = {
     }
 
     const COMMAND_EMBED = new MessageEmbed()
-      .setColor("#3262da")
+      .setColor("#5DC21E")
       .setTitle(`\`${COMMAND.name} command\``)
       .addFields(
         {

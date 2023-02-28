@@ -15,7 +15,7 @@ module.exports = {
   execute(client, message, args, Discord, profileData) {
     const target = message.mentions.users.first();
     let mainRole = message.guild.roles.cache.find(role => role.name === 'Members');
-    let muteRole = message.guild.roles.cache.find(role => role.name === 'Muted');
+    let muteRole = message.guild.roles.cache.find(role => role.name === 'D class');
 
     let memberTarget = message.guild.members.cache.get(target.id);
 
@@ -24,7 +24,7 @@ module.exports = {
     //memberTarget.roles.add(mainRole.id);
     let em = new Discord.MessageEmed()
       .setTitle(`**${memberTarget.username}** has been unmuted`)
-      .setColor("#F3CE56")
+      .setColor("#5DC21E")
     message.channel.send({
       embeds: [em]
     });

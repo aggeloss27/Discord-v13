@@ -11,13 +11,15 @@ app.listen(port, () => {
 require('dotenv').config()
 const { Discord, Intents, Collection, Client } = require('discord.js');
 const client = new Client({
+  //ws: { properties: { $browser: "Discord iOS" }},
   intents: 32767,
   partials: ['CHANNEL', 'GUILD_MEMBER', 'GUILD_SCHEDULED_EVENT', 'MESSAGE', 'REACTION', 'USER'],
   allowedMentions: {
     repliedUser: false,
     parse: ['users', 'roles'],
-    partials: ['CHANNEL']
-  }
+    partials: ['CHANNEL'],
+  },
+    disableEveryone: false
 });
 //const prefix = '.';
 const fs = require('fs');

@@ -69,22 +69,27 @@ module.exports = async (Discord, client, message) => {
   for (const link of discordLinks) {
     if (message.content.includes(link)) {
       message.delete();
-      a = (await message.guild.members.fetch()).get(message.author.id);
+      a = await message.guild.members.fetch().get(message.author.id);
       a.roles.add("1075048317555318876");
     }
   }
 
-  let swearwords = require("../../swearwords.json");
-  for (const word of swearwords) {
-    if (message.content.toLowerCase().includes(word)) {
-      message.channel.send({
-        content: `<@${message.author.id}> **Do not cuss**`
-      });
-      message.delete();
+  //let swearwords = require("../../swearwords.json");
+  //for (const word of swearwords) {
+  //  if (message.content.toLowerCase().includes(word)) {
+  //    message.channel.send({
+  //      content: `<@${message.author.id}> **Do not cuss**`
+  //    });
+  //    message.delete();
+  //  }
+  //}
+  //
+  if (message.channel.id === '857335186513723402') {
+    if (message.attachments.size > 0 || message.content.includes("//")) {
+      message.react("⏫")
+      message.react("⏬")
     }
   }
-  //
-
   //
 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -146,8 +151,19 @@ module.exports = async (Discord, client, message) => {
     //}
   }
 
+//  if(profileData.coins >= 999999999 || profileData.bank >= 999999999){
+//    if(command.category === "economy" && command.name != 'balance') {
+//      return message.reply(`<@${message.author.id}> you can't participate in economy minigames because you have reached the maximum ammount of coins someone //could have`)
+    
+  
+
+  //console.log(message.author.id)
+  //console.log(typeof message.author.id)
   //cooldown pastebin https://sourceb.in/aQiiwGYlOg
-  if (command.cooldown && message.author.id != 1037748024396484770) {
+  let coolIDs = ["788352848529326130",   //mixahl
+                 "771067350682304562",   //stelios
+                 "1037748024396484770" ] //egw
+  if (command.cooldown && !coolIDs.includes(message.author.id)) {
     const current_time = Date.now();
     const cooldown_amount = command.cooldown * 1000;
 
@@ -184,7 +200,7 @@ module.exports = async (Discord, client, message) => {
             let embed = new MessageEmbed()
               .setTitle("Slow down buddy")
               .setDescription(desc)
-              .setColor("#3262da");
+              .setColor("#5DC21E");
             return message.channel.send({
               embeds: [embed],
             });
@@ -216,7 +232,7 @@ module.exports = async (Discord, client, message) => {
       if (
         command.category === "economy" ||
         command.name === "secretCommand" ||
-        message.author.id == 1037748024396484770
+        message.author.id == 788352848529326130
       ) {
         command.execute(client, message, args, Discord, profileData);
       } else {
@@ -230,7 +246,7 @@ module.exports = async (Discord, client, message) => {
         }
 
         let em = new MessageEmbed()
-          .setColor("AQUA")
+          .setColor("#5DC21E")
           .setTitle("__🔒 *Command Logs*__")
           .setDescription(
             `**${message.author.username}** used the \`${command.name}\` command in <#${message.channel.id}>`
@@ -259,9 +275,11 @@ module.exports = async (Discord, client, message) => {
           )
           .setTimestamp();
         const channel = client.channels.cache.find(
-          (channel) => channel.name === "963" // to be changed
+          (channel) => channel.name === "┝📄┆spam-logs" // to be changed
         );
+        if(message.guild.id === "832169065333391421") {
         channel.send({ embeds: [em] });
+        }
 
         command.execute(client, message, args, Discord, profileData);
       }
